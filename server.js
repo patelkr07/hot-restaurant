@@ -28,15 +28,15 @@ var customers = [
     }
 ];
 
-app.get("/view", function(req, res) {
+app.get("/view.html", function(req, res) {
     res.sendFile(path.join(__dirname, "./view.html"));
 });
 
-app.get("/make", function(req, res) {
+app.get("/make.html", function(req, res) {
     res.sendFile(path.join(__dirname, "./make.html"))
 });
 
-app.get("/", function(req,res) {
+app.get("/home.html", function(req,res) {
     res.sendFile(path.join(__dirname, "./home.html"))
 });
 
@@ -65,7 +65,7 @@ app.post("/api/customers", function (req, res) {
 
     customers.push(newCustomer);
 
-    res.json(newCustomers);
+    res.json(newCustomer);
 
     res.send(body)
 });
