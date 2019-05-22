@@ -7,12 +7,17 @@
     <title>Hot Restaurants</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
 </head>
 <body>
         <div class="jumbotron">
                 <h1 class="display-4">Hot Restaurants</h1>
                 <hr class="my-4">
-                <p>We only have 5 tables! Book your seat before they all are gone!</p>
+                <p>Make your reservation</p>
                 <a class="btn btn-primary btn-lg" href="./view.html" role="button">View Tables</a>
                 <a class="btn btn-primary btn-lg" href="./home.html" role="button">Home</a>
               </div>
@@ -62,6 +67,25 @@
 
     <a href="">API Table Link</a>
     <a href="">API Wait List</a>   
+
+    <script type="text/javascript">
+
+    $("#add-btn").on("click", function(event) {
+        event.preventDefault();
+        var newCustomer = {
+            name: $("#name").val().trim(),
+            phoneNumber: $("#role").val().trim(),
+            email: $("#age").val().trim(),
+            uniqueID: $("#force-points").val().trim()
+        };
+
+        $.post("/api/customers", newCustomer)
+        .then(function(data) {
+            console.log("make.html", data);
+            alert("Adding customer...");
+        });
+    });
+    </script>
                   
     
 </body>
